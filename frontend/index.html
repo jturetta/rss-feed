@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RSS Feed Generator</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>RSS Feed Generator</h1>
+      <p class="subtitle">Gere feeds RSS de qualquer site que não possua um</p>
+    </header>
+
+    <section class="card input-section">
+      <label for="url">URL do site</label>
+      <div class="url-row">
+        <input type="url" id="url" placeholder="https://exemplo.com/noticias" required>
+        <button id="btn-preview" class="btn btn-primary">Analisar</button>
+      </div>
+
+      <div class="github-repo-row">
+        <label for="github-repo">Repositório GitHub (usuario/repo)</label>
+        <input type="text" id="github-repo" placeholder="jonathanturetta/rss-feed">
+      </div>
+
+      <details class="advanced">
+        <summary>Seletores CSS avançados (opcional)</summary>
+        <div class="selectors-grid">
+          <div>
+            <label for="title-selector">Título</label>
+            <input type="text" id="title-selector" placeholder="h2.title">
+          </div>
+          <div>
+            <label for="link-selector">Link</label>
+            <input type="text" id="link-selector" placeholder="a.read-more">
+          </div>
+          <div>
+            <label for="desc-selector">Descrição</label>
+            <input type="text" id="desc-selector" placeholder="p.excerpt">
+          </div>
+          <div>
+            <label for="img-selector">Imagem</label>
+            <input type="text" id="img-selector" placeholder="img.thumbnail">
+          </div>
+        </div>
+      </details>
+    </section>
+
+    <div id="loading" class="loading hidden">
+      <div class="spinner"></div>
+      <span>Analisando página...</span>
+    </div>
+
+    <div id="error" class="error hidden"></div>
+
+    <section id="preview-section" class="hidden">
+      <div class="preview-header">
+        <h2>Preview <span id="items-count" class="badge"></span></h2>
+        <p id="source-url" class="source-url"></p>
+      </div>
+
+      <div id="native-notice" class="notice hidden">
+        Este site já possui um feed RSS nativo. Você pode usá-lo diretamente.
+      </div>
+
+      <div id="preview-list" class="preview-list"></div>
+
+      <div class="actions">
+        <input type="text" id="feed-title" placeholder="Título do feed (opcional)">
+        <button id="btn-generate" class="btn btn-success">Gerar Feed RSS</button>
+      </div>
+    </section>
+
+    <section id="result-section" class="card result hidden">
+      <h2>Feed gerado com sucesso!</h2>
+      <p>Copie a URL abaixo e adicione ao seu leitor RSS:</p>
+      <div class="feed-url-row">
+        <input type="text" id="feed-url" readonly>
+        <button id="btn-copy" class="btn btn-secondary">Copiar</button>
+      </div>
+      <a id="feed-link" href="#" target="_blank" class="feed-link">Abrir feed XML</a>
+      <div id="localhost-notice" class="localhost-notice hidden">
+        <p><strong>URL local:</strong> só funciona neste computador, com o servidor rodando.</p>
+        <p id="lan-url-row" class="hidden"><strong>Na mesma rede Wi‑Fi:</strong> <code id="lan-feed-url"></code></p>
+      </div>
+
+      <div id="github-section" class="github-section hidden">
+        <h3>Publicar com GitHub Actions (recomendado)</h3>
+        <p>URL pública do feed:</p>
+        <div class="feed-url-row">
+          <input type="text" id="github-feed-url" readonly>
+          <button id="btn-copy-github" class="btn btn-secondary">Copiar</button>
+        </div>
+        <p class="hint">Adicione ao <code>feeds.json</code> e faça push — o Action atualiza a cada 6h:</p>
+        <pre id="github-config" class="config-block"></pre>
+        <button id="btn-copy-config" class="btn btn-secondary">Copiar config</button>
+      </div>
+    </section>
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>

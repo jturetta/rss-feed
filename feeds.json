@@ -1,0 +1,9 @@
+{
+  "feeds": [
+    {
+      "id": "investidor10-noticias",
+      "title": "Investidor10 - Notícias",
+      "source_url": "https://investidor10.com.br/noticias/"
+    }
+  ]
+}

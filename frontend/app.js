@@ -187,8 +187,8 @@ function slugFromUrl(url) {
 
 function showGithubExport(payload, data) {
   const section = $("#github-section");
-  const repo = $("#github-repo").value.trim() || "SEU-USUARIO/rss-feed";
-  const [owner, name] = repo.includes("/") ? repo.split("/") : ["SEU-USUARIO", "rss-feed"];
+  const repo = $("#github-repo").value.trim() || "jturetta/rss-feed";
+  const [owner, name] = repo.includes("/") ? repo.split("/") : ["jturetta", "rss-feed"];
   const feedId = slugFromUrl(payload.url);
 
   const config = {

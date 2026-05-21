@@ -26,7 +26,7 @@ git init
 git add .
 git commit -m "feat: gerador RSS com GitHub Actions"
 git branch -M main
-git remote add origin https://github.com/SEU-USUARIO/rss-feed.git
+git remote add origin https://github.com/jturetta/rss-feed.git
 git push -u origin main
 ```
 
@@ -48,7 +48,7 @@ O Action gera os XML em `docs/feeds/` e faz commit automático.
 URL pública (exemplo):
 
 ```
-https://SEU-USUARIO.github.io/rss-feed/feeds/investidor10-noticias.xml
+https://jturetta.github.io/rss-feed/feeds/investidor10-noticias.xml
 ```
 
 Funciona em Feedly, Inoreader, celular, etc.

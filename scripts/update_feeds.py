@@ -64,7 +64,7 @@ def _pages_base_url() -> str:
         owner, name = repo.split("/", 1)
         return f"https://{owner}.github.io/{name}"
 
-    return "https://SEU-USUARIO.github.io/rss-feed"
+    return "https://jturetta.github.io/rss-feed"
 
 
 def _write_index(feeds: list[dict], pages_base_url: str) -> None:
